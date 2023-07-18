@@ -18,15 +18,35 @@ const form = document.querySelector("form");
 
 // nextQuestionButton.addEventListener("click", test);
 
-const questionFrom = document.querySelector("h1");
+const questionForm = document.querySelector("h1");
 
 const answersForm = document.querySelectorAll("label");
 
 const [a1, a2, a3, a4] = answersForm;
 
+const correctAnswers = 0;
+
+let remainingQuestions = questions.length;
+
+const question = questions[0];
+
+const selectQuestion = () => {
+  const randIndex = Math.floor(Math.random() * remainingQuestions);
+  const nextQuestion = questions[randIndex];
+  questions.splice(randIndex, 1);
+  remainingQuestions--;
+  console.log(questions);
+  return nextQuestion;
+};
+
 const nextQuestion = e => {
   e.preventDefault();
-  console.log(document.querySelector('input[name="answer"]:checked').value); // !todo fix
+  if (question.correct_answer === 'input[name="answer"]:checked') {
+    correctAnswers += 1;
+  } // !todo fix
+  if (remainingQuestions === 0) {
+    alert("done");
+  }
   const nextQuestion = selectQuestion();
   const answers = [nextQuestion.correct_answer, ...nextQuestion.incorrect_answers];
   const randomizedAnswers = [];
@@ -35,19 +55,10 @@ const nextQuestion = e => {
     const answer = answers.splice(randIndex, 1);
     randomizedAnswers.push(answer[0]);
   }
-  questionFrom.innerText = nextQuestion.question;
+  questionForm.innerText = nextQuestion.question;
   for (let i = 0; i < randomizedAnswers.length; i++) {
     answersForm[i].innerText = randomizedAnswers[i];
   }
 };
 
 form.addEventListener("submit", nextQuestion);
-
-let remainingQuestions = questions.length;
-console.log(remainingQuestions);
-
-const selectQuestion = () => {
-  const nextQuestion = questions[Math.floor(Math.random()) * remainingQuestions];
-  console.log(nextQuestion);
-  return nextQuestion;
-};
