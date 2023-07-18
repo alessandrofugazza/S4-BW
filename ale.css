@@ -88,7 +88,7 @@ h1 span {
     margin-bottom: 7em;
 }
 
-.answer-box>* {
+.answer-box label {
     display: inline-block;
     width: 21.5em;
     padding: 1.5em;
@@ -97,11 +97,11 @@ h1 span {
     background-color: #43434347;
 }
 
-.answer-box>div:not(:nth-of-type(2)):not(:nth-of-type(4)) {
+.answer-box label:not(:nth-of-type(2)):not(:nth-of-type(4)) {
     margin-right: 2.5em;
 }
 
-.answer-box>div:not(:nth-of-type(3)):not(:nth-of-type(4)) {
+.answer-box label:not(:nth-of-type(3)):not(:nth-of-type(4)) {
     margin-bottom: 1em;
 }
 
@@ -113,4 +113,13 @@ h1 span {
 
 .answer-box+div span {
     color: #D20094;
+}
+
+form input {
+    appearance: none
+}
+
+form input:last-of-type {
+    display: block;
+    margin-inline: auto;
 }
