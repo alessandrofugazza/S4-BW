@@ -16,8 +16,6 @@ const decreaseTimer = () => {
 
 const form = document.querySelector("form");
 
-// nextQuestionButton.addEventListener("click", test);
-
 const questionForm = document.querySelector("h1");
 
 const answersForm = document.querySelectorAll("label");
@@ -28,15 +26,28 @@ const correctAnswers = 0;
 
 let remainingQuestions = questions.length;
 
-const question = questions[0];
+// const question = questions[0];
+
+let question = null;
 
 const selectQuestion = () => {
+  console.log("HERE");
   const randIndex = Math.floor(Math.random() * remainingQuestions);
-  const nextQuestion = questions[randIndex];
+  question = questions[randIndex];
   questions.splice(randIndex, 1);
-  remainingQuestions--;
   console.log(questions);
-  return nextQuestion;
+  //   return question;
+  const answers = [question.correct_answer, ...question.incorrect_answers];
+  const randomizedAnswers = [];
+  for (let i = answers.length; i; i--) {
+    const randIndex = Math.floor(Math.random() * i - 1);
+    const answer = answers.splice(randIndex, 1);
+    randomizedAnswers.push(answer[0]);
+  }
+  questionForm.innerText = question.question;
+  for (let i = 0; i < randomizedAnswers.length; i++) {
+    answersForm[i].innerText = randomizedAnswers[i];
+  }
 };
 
 const nextQuestion = e => {
@@ -44,21 +55,13 @@ const nextQuestion = e => {
   if (question.correct_answer === 'input[name="answer"]:checked') {
     correctAnswers += 1;
   } // !todo fix
+  remainingQuestions--;
   if (remainingQuestions === 0) {
     alert("done");
   }
-  const nextQuestion = selectQuestion();
-  const answers = [nextQuestion.correct_answer, ...nextQuestion.incorrect_answers];
-  const randomizedAnswers = [];
-  for (let i = answers.length; i; i--) {
-    const randIndex = Math.floor(Math.random() * i - 1);
-    const answer = answers.splice(randIndex, 1);
-    randomizedAnswers.push(answer[0]);
-  }
-  questionForm.innerText = nextQuestion.question;
-  for (let i = 0; i < randomizedAnswers.length; i++) {
-    answersForm[i].innerText = randomizedAnswers[i];
-  }
+  selectQuestion();
 };
 
 form.addEventListener("submit", nextQuestion);
+
+window.onload = selectQuestion();
