@@ -54,7 +54,7 @@ const selectQuestion = () => {
     answerFormInput.setAttribute("name", "answer");
     answerFormInput.setAttribute("value", randomizedAnswers[`${i}`]);
     form.appendChild(answerFormInput);
-
+    //todo change setattribute
     const answerFormLabel = document.createElement("label");
     answerFormLabel.setAttribute("for", `answer${i + 1}`);
     answerFormLabel.innerText = randomizedAnswers[i];
