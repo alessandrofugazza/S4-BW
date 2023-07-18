@@ -22,7 +22,7 @@ const questionForm = document.querySelector("h1");
 
 // const [a1, a2, a3, a4] = answersForm;
 
-const correctAnswers = 0;
+let correctAnswers = 0;
 
 let remainingQuestions = questions.length;
 
@@ -51,12 +51,12 @@ const selectQuestion = () => {
     answerFormInput.setAttribute("type", "radio");
     answerFormInput.setAttribute("id", `answer${i + 1}`);
     answerFormInput.setAttribute("name", "answer");
-    answerFormInput.setAttribute("value", `answer${i + 1}`);
+    answerFormInput.setAttribute("value", randomizedAnswers[`${i}`]);
     form.appendChild(answerFormInput);
 
     const answerFormLabel = document.createElement("label");
     answerFormLabel.setAttribute("for", `answer${i + 1}`);
-    answerFormLabel.innerText = `${randomizedAnswers[i]}`;
+    answerFormLabel.innerText = randomizedAnswers[i];
     form.appendChild(answerFormLabel);
   }
   const btn = document.createElement("input");
@@ -67,12 +67,15 @@ const selectQuestion = () => {
 
 const nextQuestion = e => {
   e.preventDefault();
-  if (question.correct_answer === 'input[name="answer"]:checked') {
+  const answerGiven = document.querySelector('input[name="answer"]:checked').value;
+  //   console.log(question.correct_answer);
+  console.log(answerGiven);
+  if (question.correct_answer === answerGiven) {
     correctAnswers += 1;
   } // !todo fix
   remainingQuestions--;
   if (remainingQuestions === 0) {
-    alert("done");
+    alert(`${correctAnswers}`);
   }
   selectQuestion();
 };
