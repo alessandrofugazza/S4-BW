@@ -1,6 +1,8 @@
 const timer = document.querySelector("header div p:nth-of-type(2)");
 
-let secondsRemaining = 3;
+const maxTimer = 3;
+
+let secondsRemaining = maxTimer;
 
 timer.innerText = secondsRemaining;
 
@@ -9,14 +11,10 @@ const decreaseTimer = () => {
     secondsRemaining -= 1;
     timer.innerText = secondsRemaining;
   } else {
-    //   if (secondsRemaining === 0) {
-
-    // nextQuestion();
     alert("time is up");
-    secondsRemaining = 3;
+    secondsRemaining = maxTimer;
     selectQuestion();
   }
-  //   }
 };
 
 let timerIntervalID = setInterval(decreaseTimer, 1000);
@@ -25,15 +23,9 @@ const form = document.querySelector("form");
 
 const questionForm = document.querySelector("h1");
 
-// const answersForm = document.querySelectorAll("label");
-
-// const [a1, a2, a3, a4] = answersForm;
-
 let correctAnswers = 0;
 
 let remainingQuestions = questions.length;
-
-// const question = questions[0];
 
 let question = null;
 
@@ -82,7 +74,7 @@ const nextQuestion = e => {
   }
   selectQuestion();
   clearInterval(timerIntervalID);
-  secondsRemaining = 3;
+  secondsRemaining = maxTimer;
   timerIntervalID = setInterval(decreaseTimer, 1000);
 };
 
