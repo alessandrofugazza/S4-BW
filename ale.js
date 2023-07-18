@@ -1,21 +1,25 @@
 const timer = document.querySelector("header div p:nth-of-type(2)");
 
-let secondsRemaining = 5;
+let secondsRemaining = 3;
 
 timer.innerText = secondsRemaining;
 
 const decreaseTimer = () => {
-  // while(secondsRemaining) {}
-  secondsRemaining -= 1;
-  timer.innerText = secondsRemaining;
-  if (secondsRemaining === 0) {
-    clearInterval(timerIntervalID);
+  if (secondsRemaining) {
+    secondsRemaining -= 1;
+    timer.innerText = secondsRemaining;
+  } else {
+    //   if (secondsRemaining === 0) {
+
     // nextQuestion();
     alert("time is up");
+    secondsRemaining = 3;
+    selectQuestion();
   }
+  //   }
 };
 
-const timerIntervalID = setInterval(decreaseTimer, 1000);
+let timerIntervalID = setInterval(decreaseTimer, 1000);
 
 const form = document.querySelector("form");
 
@@ -34,7 +38,6 @@ let remainingQuestions = questions.length;
 let question = null;
 
 const selectQuestion = () => {
-  console.log("HERE");
   const randIndex = Math.floor(Math.random() * remainingQuestions);
   question = questions[randIndex];
   questions.splice(randIndex, 1);
@@ -78,6 +81,9 @@ const nextQuestion = e => {
     alert(`${correctAnswers}`);
   }
   selectQuestion();
+  clearInterval(timerIntervalID);
+  secondsRemaining = 3;
+  timerIntervalID = setInterval(decreaseTimer, 1000);
 };
 
 form.addEventListener("submit", nextQuestion);
