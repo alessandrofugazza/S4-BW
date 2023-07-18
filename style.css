@@ -1,0 +1,326 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* WELCOME PAGE */
+body {
+  background-image: url(./assets/img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  color: white;
+}
+main {
+  display: block;
+  margin-inline: auto;
+  max-width: 1024px;
+  min-height: 100vh;
+}
+.epicode_logo {
+  width: 15%;
+  display: inline-block;
+  margin-top: 3%;
+  margin-left: 7%;
+}
+.logowelcome {
+  margin-bottom: 80px;
+}
+.h1welcome {
+  color: white;
+  font-size: 80px;
+  font-weight: 400;
+  margin-bottom: 0%;
+  font-family: "Outfit", sans-serif;
+  margin-top: 0;
+  line-height: 0.8;
+  margin-left: 7%;
+}
+.instruction {
+  margin-left: 7%;
+  margin-bottom: 0;
+  color: #d20094;
+  font-size: 30px;
+}
+p {
+  color: white;
+  font-size: 16px;
+}
+.wedont {
+  margin-bottom: 50px;
+  margin-left: 7%;
+}
+.ulwelcome {
+  color: white;
+  padding: 0;
+  margin-left: 9%;
+  margin-bottom: 80px;
+}
+li {
+  margin-bottom: 5px;
+}
+
+label {
+  color: white;
+}
+.formwelcome {
+  margin-left: 7%;
+}
+.tick-checkbox {
+  background: transparent;
+}
+.custom-button {
+  margin-left: 350px;
+  background-color: #01ffff;
+  border: none;
+  color: black;
+  box-shadow: 0px 0px 30px #01ffff;
+  font-weight: bold;
+  width: 200px;
+  height: 50px;
+}
+
+/* QUESTIONS CSS */
+
+/* header, */
+.question-header img {
+  vertical-align: top;
+  float: left;
+}
+.headerQuestionsDiv {
+  text-align: center;
+  border-radius: 100px;
+  width: 7.5em;
+  height: 7.5em;
+  float: right;
+  border: 12px solid #00ffff;
+  padding: 1.3em;
+}
+
+.headerPQuestions {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+}
+
+header p:first-of-type,
+header p:last-of-type {
+  font-size: 0.5rem;
+}
+
+header p:nth-of-type(2) {
+  font-size: 2.5rem;
+  margin-bottom: 0.1em;
+  line-height: 0.9;
+}
+
+header p:last-of-type {
+  font-weight: 300;
+}
+
+/* main */
+
+.question-main {
+  padding-top: 5.1em;
+  clear: both;
+}
+.h2Questions {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 1.7em;
+  line-height: 1;
+}
+
+h2 span {
+  font-weight: 700;
+}
+
+.answer-box {
+  font-weight: 700;
+  margin-bottom: 3em;
+  text-align: center;
+}
+
+.answer-box label {
+  display: inline-block;
+  width: 21.5em;
+  padding: 1.5em;
+  border: 3.5px solid white;
+  border-radius: 40px;
+  background-color: #43434347;
+}
+
+.answer-box label:not(:nth-of-type(2)):not(:nth-of-type(4)) {
+  margin-right: 2.5em;
+}
+
+.answer-box label:not(:nth-of-type(3)):not(:nth-of-type(4)) {
+  margin-bottom: 1em;
+}
+
+.answer-box + div {
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+}
+
+.answer-box + div span {
+  color: #d20094;
+}
+
+form input {
+  appearance: none;
+}
+
+form input:last-of-type {
+  display: block;
+}
+.numberOfQuestions {
+  float: left;
+  margin-bottom: 0;
+  margin-top: 70px;
+}
+.submit {
+  background: transparent;
+  border: solid 2px white;
+  color: white;
+  width: 180px;
+  height: 50px;
+  font-family: "Inter", sans-serif;
+  font-size: 120%;
+  float: right;
+  margin-top: 50px;
+}
+/* RESULTS CSS */
+.articleresults {
+  text-align: center;
+  color: white;
+}
+.title {
+  margin-top: 0;
+  font-size: 300%;
+  margin-bottom: 0;
+}
+.summary {
+  font-size: 150%;
+  margin-top: 0px;
+  margin-bottom: 60px;
+}
+
+.inblock {
+  display: inline-block;
+}
+.circle {
+  border: solid 40px #01ffff;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+.correct {
+  margin-right: 80px;
+}
+.wrong {
+  margin-left: 100px;
+}
+.button {
+  display: block;
+  margin-top: 50px;
+  margin-inline: auto;
+  background: transparent;
+  border: solid 2px white;
+  color: white;
+  width: 180px;
+  height: 50px;
+  font-family: "Inter", sans-serif;
+  font-size: 120%;
+}
+.corwro {
+  font-size: 300%;
+  font-weight: 400;
+  margin: 0;
+}
+.percentuali {
+  font-weight: 700;
+}
+.cong {
+  margin-top: 50px;
+  margin-bottom: 0;
+  font-size: 100%;
+}
+.pass {
+  margin-top: 0;
+  font-size: 100%;
+  margin-bottom: 30px;
+  color: #01ffff;
+}
+.send {
+  margin-bottom: 0;
+  width: 220px;
+  margin-inline: auto;
+  font-size: 70%;
+}
+.email {
+  margin-top: 0;
+  font-size: 70%;
+}
+/* FEEDBACK CSS */
+
+.logoEpicode {
+  width: 15%;
+  display: inline-block;
+  margin-top: 3%;
+  margin-left: 7%;
+}
+.center {
+  text-align: center;
+}
+.h2 {
+  color: white;
+  margin-top: 60px;
+  font-size: 300%;
+  margin-bottom: 0.2%;
+  font-family: "Outfit", sans-serif;
+}
+.pfeedback {
+  margin-top: 20px;
+  font-size: 155%;
+  font-family: "Outfit", sans-serif;
+}
+.pWidth {
+  margin-inline: 18%;
+}
+.inputText {
+  display: block;
+  margin-inline: auto;
+  width: 65%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-bottom: solid 3px #ac0088;
+  margin-bottom: 30px;
+  font-size: 110%;
+  text-align: left;
+  padding-left: 25px;
+  font-family: "Inter", sans-serif;
+}
+.inputButton {
+  display: block;
+  margin-inline: auto;
+  margin-bottom: 50px;
+  width: 20%;
+  height: 60px;
+  background-color: #01ffff;
+  border: none;
+  box-shadow: 0px 0px 30px #01ffff;
+  font-size: 130%;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+.divStars {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.Stars {
+  padding-inline: 4px;
+}
