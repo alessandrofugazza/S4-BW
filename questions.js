@@ -56,14 +56,14 @@ const questions = [
   //     correct_answer: "Nougat",
   //     incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
   //   },
-  //   {
-  //     category: "Science: Computers",
-  //     type: "multiple",
-  //     difficulty: "easy",
-  //     question: "On Twitter, what is the character limit for a Tweet?",
-  //     correct_answer: "140",
-  //     incorrect_answers: ["120", "160", "100"],
-  //   },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "On Twitter, what is the character limit for a Tweet?",
+    correct_answer: "140",
+    incorrect_answers: ["120", "160", "100"],
+  },
   {
     category: "Science: Computers",
     type: "boolean",

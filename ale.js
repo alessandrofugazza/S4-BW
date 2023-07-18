@@ -18,9 +18,9 @@ const form = document.querySelector("form");
 
 const questionForm = document.querySelector("h1");
 
-const answersForm = document.querySelectorAll("label");
+// const answersForm = document.querySelectorAll("label");
 
-const [a1, a2, a3, a4] = answersForm;
+// const [a1, a2, a3, a4] = answersForm;
 
 const correctAnswers = 0;
 
@@ -45,9 +45,24 @@ const selectQuestion = () => {
     randomizedAnswers.push(answer[0]);
   }
   questionForm.innerText = question.question;
+  form.innerHTML = "";
   for (let i = 0; i < randomizedAnswers.length; i++) {
-    answersForm[i].innerText = randomizedAnswers[i];
+    const answerFormInput = document.createElement("input");
+    answerFormInput.setAttribute("type", "radio");
+    answerFormInput.setAttribute("id", `answer${i + 1}`);
+    answerFormInput.setAttribute("name", "answer");
+    answerFormInput.setAttribute("value", `answer${i + 1}`);
+    form.appendChild(answerFormInput);
+
+    const answerFormLabel = document.createElement("label");
+    answerFormLabel.setAttribute("for", `answer${i + 1}`);
+    answerFormLabel.innerText = `${randomizedAnswers[i]}`;
+    form.appendChild(answerFormLabel);
   }
+  const btn = document.createElement("input");
+  btn.setAttribute("type", "submit");
+  btn.setAttribute("value", "PROSSIMA");
+  form.appendChild(btn);
 };
 
 const nextQuestion = e => {
