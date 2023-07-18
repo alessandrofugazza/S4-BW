@@ -3,6 +3,7 @@
 *::after {
   box-sizing: border-box;
 }
+
 /* WELCOME PAGE */
 body {
   background-image: url(./assets/img/bg.jpg);
@@ -12,21 +13,25 @@ body {
   font-family: "Outfit", sans-serif;
   color: white;
 }
+
 main {
   display: block;
   margin-inline: auto;
   max-width: 1024px;
   min-height: 100vh;
 }
+
 .epicode_logo {
   width: 15%;
   display: inline-block;
   margin-top: 3%;
   margin-left: 7%;
 }
+
 .logowelcome {
   margin-bottom: 80px;
 }
+
 .h1welcome {
   color: white;
   font-size: 80px;
@@ -37,26 +42,31 @@ main {
   line-height: 0.8;
   margin-left: 7%;
 }
+
 .instruction {
   margin-left: 7%;
   margin-bottom: 0;
   color: #d20094;
   font-size: 30px;
 }
+
 p {
   color: white;
   font-size: 16px;
 }
+
 .wedont {
   margin-bottom: 50px;
   margin-left: 7%;
 }
+
 .ulwelcome {
   color: white;
   padding: 0;
   margin-left: 9%;
   margin-bottom: 80px;
 }
+
 li {
   margin-bottom: 5px;
 }
@@ -64,12 +74,15 @@ li {
 label {
   color: white;
 }
+
 .formwelcome {
   margin-left: 7%;
 }
+
 .tick-checkbox {
   background: transparent;
 }
+
 .custom-button {
   margin-left: 350px;
   background-color: #01ffff;
@@ -88,6 +101,7 @@ label {
   vertical-align: top;
   float: left;
 }
+
 .headerQuestionsDiv {
   text-align: center;
   border-radius: 100px;
@@ -124,6 +138,7 @@ header p:last-of-type {
   padding-top: 5.1em;
   clear: both;
 }
+
 .h2Questions {
   font-family: "Outfit", sans-serif;
   font-weight: 400;
@@ -159,13 +174,13 @@ h2 span {
   margin-bottom: 1em;
 }
 
-.answer-box + div {
+.answer-box+div {
   font-weight: 500;
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
 }
 
-.answer-box + div span {
+.answer-box+div span {
   color: #d20094;
 }
 
@@ -176,11 +191,13 @@ form input {
 form input:last-of-type {
   display: block;
 }
+
 .numberOfQuestions {
   float: left;
   margin-bottom: 0;
   margin-top: 70px;
 }
+
 .submit {
   background: transparent;
   border: solid 2px white;
@@ -192,16 +209,23 @@ form input:last-of-type {
   float: right;
   margin-top: 50px;
 }
+
+#selectedAnswer {
+  background-color: #ac0088;
+}
+
 /* RESULTS CSS */
 .articleresults {
   text-align: center;
   color: white;
 }
+
 .title {
   margin-top: 0;
   font-size: 300%;
   margin-bottom: 0;
 }
+
 .summary {
   font-size: 150%;
   margin-top: 0px;
@@ -211,18 +235,22 @@ form input:last-of-type {
 .inblock {
   display: inline-block;
 }
+
 .circle {
   border: solid 40px #01ffff;
   border-radius: 50%;
   width: 300px;
   height: 300px;
 }
+
 .correct {
   margin-right: 80px;
 }
+
 .wrong {
   margin-left: 100px;
 }
+
 .button {
   display: block;
   margin-top: 50px;
@@ -235,35 +263,42 @@ form input:last-of-type {
   font-family: "Inter", sans-serif;
   font-size: 120%;
 }
+
 .corwro {
   font-size: 300%;
   font-weight: 400;
   margin: 0;
 }
+
 .percentuali {
   font-weight: 700;
 }
+
 .cong {
   margin-top: 50px;
   margin-bottom: 0;
   font-size: 100%;
 }
+
 .pass {
   margin-top: 0;
   font-size: 100%;
   margin-bottom: 30px;
   color: #01ffff;
 }
+
 .send {
   margin-bottom: 0;
   width: 220px;
   margin-inline: auto;
   font-size: 70%;
 }
+
 .email {
   margin-top: 0;
   font-size: 70%;
 }
+
 /* FEEDBACK CSS */
 
 .logoEpicode {
@@ -272,9 +307,11 @@ form input:last-of-type {
   margin-top: 3%;
   margin-left: 7%;
 }
+
 .center {
   text-align: center;
 }
+
 .h2 {
   color: white;
   margin-top: 60px;
@@ -282,14 +319,17 @@ form input:last-of-type {
   margin-bottom: 0.2%;
   font-family: "Outfit", sans-serif;
 }
+
 .pfeedback {
   margin-top: 20px;
   font-size: 155%;
   font-family: "Outfit", sans-serif;
 }
+
 .pWidth {
   margin-inline: 18%;
 }
+
 .inputText {
   display: block;
   margin-inline: auto;
@@ -304,6 +344,7 @@ form input:last-of-type {
   padding-left: 25px;
   font-family: "Inter", sans-serif;
 }
+
 .inputButton {
   display: block;
   margin-inline: auto;
@@ -317,10 +358,12 @@ form input:last-of-type {
   font-family: "Inter", sans-serif;
   font-weight: 700;
 }
+
 .divStars {
   text-align: center;
   margin-bottom: 60px;
 }
+
 .Stars {
   padding-inline: 4px;
 }

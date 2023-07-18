@@ -1,6 +1,8 @@
+console.log(questions[0].correct_answer);
+
 const timer = document.querySelector("header div p:nth-of-type(2)");
 
-const maxTimer = 5;
+const maxTimer = 9999;
 
 let secondsRemaining = maxTimer;
 
@@ -21,7 +23,7 @@ const decreaseTimer = () => {
 
 const form = document.querySelector("form");
 
-const questionForm = document.querySelector("h1");
+const questionForm = document.querySelector("h2");
 
 let correctAnswers = 0;
 
@@ -57,6 +59,8 @@ const selectQuestion = () => {
     answerFormLabel.setAttribute("for", `answer${i + 1}`);
     answerFormLabel.innerText = randomizedAnswers[i];
     form.appendChild(answerFormLabel);
+    // answerFormLabel.addEventListener("click", answerFormInput.classList.add("selectedAnswer"));
+    answerFormLabel.addEventListener("click", test);
   }
   const btn = document.createElement("input");
   btn.setAttribute("type", "submit");
@@ -64,10 +68,24 @@ const selectQuestion = () => {
   form.appendChild(btn);
 };
 
+const test = e => {
+  // e.target.classList.add("selectedAnswer");
+  const prevAnswer = document.getElementById("selectedAnswer");
+  if (prevAnswer) {
+    prevAnswer.removeAttribute("id");
+  } //!todo remove if
+  e.target.setAttribute("id", "selectedAnswer");
+  //   console.log(e);
+};
+
+// const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+// selectedAnswer.classList.add("selectedAnswer");
+
 const nextQuestion = e => {
   e.preventDefault();
   // check if answer is correct
   const answerGiven = document.querySelector('input[name="answer"]:checked').value;
+  //   selectedAnswer = document.querySelector('input[name="answer"]:checked').value;
   if (question.correct_answer === answerGiven) {
     correctAnswers += 1;
   }
@@ -94,3 +112,5 @@ window.onload = () => {
   selectQuestion();
   timerIntervalID = setInterval(decreaseTimer, 1000);
 };
+
+//todo question number
