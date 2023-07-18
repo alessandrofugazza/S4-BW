@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FeedBack Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Outfit:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/necolas.github.io_normalize.css_8.0.1_normalize.css" />
+    <link rel="stylesheet" href="feedback.css" />
+  </head>
+  <body>
+    <main>
+      <img src=".\assets\img\epicode_logo.png" class="logoEpicode" />
+      <h2 class="center h2">Tell us how it's going</h2>
+      <div class="pWidth">
+        <p class="center p">From 0 to 10, how likley are you to recommend EPICODE to a friend or a colleague?</p>
+      </div>
+     
+      <input type="hidden" id="ratingInput" value="0" />  <!--campo nascosto per rating selezionato --> 
+      <div class="divStars">
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="1"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="2"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="3"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="4"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="5"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="6"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="7"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="8"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="9"/>
+        <img class="Stars disacting" src="./assets/img/star.svg" alt=""   data-rating="10"/>
+        
+      </div>
+      <p class="center p">Leave us an open feedback about your experience so far</p>
+      <input id="commentInput" type="text" placeholder="Write your comment here" class="center inputText"  />
+      <br />
+      <input type="button" class="inputButton" value="MORE INFO" />
+    </main>
+   <script src="feedback.js"></script>
+  </body>
+</html>
