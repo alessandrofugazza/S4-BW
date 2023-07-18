@@ -1,18 +1,21 @@
 const timer = document.querySelector("header div p:nth-of-type(2)");
 
-let secondsRemaining = 60;
+let secondsRemaining = 5;
 
 timer.innerText = secondsRemaining;
 
 const decreaseTimer = () => {
+  // while(secondsRemaining) {}
   secondsRemaining -= 1;
   timer.innerText = secondsRemaining;
   if (secondsRemaining === 0) {
     clearInterval(timerIntervalID);
+    // nextQuestion();
+    alert("time is up");
   }
 };
 
-// const timerIntervalID = setInterval(decreaseTimer, 1000);
+const timerIntervalID = setInterval(decreaseTimer, 1000);
 
 const form = document.querySelector("form");
 
@@ -36,7 +39,6 @@ const selectQuestion = () => {
   question = questions[randIndex];
   questions.splice(randIndex, 1);
   console.log(questions);
-  //   return question;
   const answers = [question.correct_answer, ...question.incorrect_answers];
   const randomizedAnswers = [];
   for (let i = answers.length; i; i--) {
@@ -68,8 +70,6 @@ const selectQuestion = () => {
 const nextQuestion = e => {
   e.preventDefault();
   const answerGiven = document.querySelector('input[name="answer"]:checked').value;
-  //   console.log(question.correct_answer);
-  console.log(answerGiven);
   if (question.correct_answer === answerGiven) {
     correctAnswers += 1;
   } // !todo fix
