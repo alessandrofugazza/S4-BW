@@ -3,7 +3,6 @@ const stars = document.querySelectorAll(".stars");
 let ratingUser = null;
 stars.forEach((singleStar, index) => {
   singleStar.addEventListener("click", () => {
-    // console.log(index + 1);
     if (ratingUser) {
       for (let i = index + 1; i < ratingUser; i++) {
         stars[i].classList.add("filter");
