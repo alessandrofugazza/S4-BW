@@ -22,8 +22,10 @@ const decreaseTimer = () => {
 const answerForm = document.querySelector("form");
 const formQuestion = document.querySelector("h2");
 let correctAnswers = 0;
-let remainingQuestions = questions.length;
+const totalQuestions = questions.length;
+let remainingQuestions = totalQuestions;
 let question = null;
+let questionNumber = 1;
 
 const selectQuestion = () => {
   // pull a random question from an array of questions
@@ -52,13 +54,20 @@ const selectQuestion = () => {
     const answerFormLabel = document.createElement("label");
     answerFormLabel.setAttribute("for", `answer${i + 1}`);
     answerFormLabel.innerText = randomizedAnswers[i];
+    answerFormLabel.addEventListener("click", highlightSelectedAnswer);
     answerForm.appendChild(answerFormLabel);
     // answerFormLabel.addEventListener("click", answerFormInput.classList.add("selectedAnswer"));
-    answerFormLabel.addEventListener("click", highlightSelectedAnswer);
   }
+  const formBr = document.createElement("br");
+  answerForm.appendChild(formBr);
+  const formQuestionNumber = document.createElement("p");
+  formQuestionNumber.classList.add("numberOfQuestions");
+  formQuestionNumber.innerHTML = `QUESTION ${questionNumber} <span>/ ${totalQuestions}</span>`;
+  answerForm.appendChild(formQuestionNumber);
   const btn = document.createElement("input");
   btn.setAttribute("type", "submit");
-  btn.setAttribute("value", "PROSSIMA");
+  btn.setAttribute("value", "PROSSIMA"); //todo add right arrow
+  btn.classList.add("submit");
   answerForm.appendChild(btn);
 };
 
@@ -80,6 +89,7 @@ const nextQuestion = e => {
     correctAnswers += 1;
   }
   remainingQuestions--;
+  questionNumber++;
   if (remainingQuestions === 0) {
     // placeholder when there are no more questions
     alert(`${correctAnswers}`);
