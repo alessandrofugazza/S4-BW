@@ -1,11 +1,9 @@
-console.log(questions[0].correct_answer);
+// CLOCK //
 
-const timer = document.querySelector("header div p:nth-of-type(2)");
+const timer = document.querySelector("header div p:nth-of-type(2)"); //todo use class
 
-const maxTimer = 9999;
-
+const maxTimer = 999999;
 let secondsRemaining = maxTimer;
-
 timer.innerText = secondsRemaining;
 
 const decreaseTimer = () => {
@@ -13,22 +11,18 @@ const decreaseTimer = () => {
     secondsRemaining -= 1;
     timer.innerText = secondsRemaining;
   } else {
-    alert("time is up");
+    alert("time is up"); //todo remove and prevent answerForm change instead
     secondsRemaining = maxTimer;
     selectQuestion();
   }
 };
 
-// let timerIntervalID = setInterval(decreaseTimer, 1000);
+// ANSWER FORM //
 
-const form = document.querySelector("form");
-
-const questionForm = document.querySelector("h2");
-
+const answerForm = document.querySelector("form");
+const formQuestion = document.querySelector("h2");
 let correctAnswers = 0;
-
 let remainingQuestions = questions.length;
-
 let question = null;
 
 const selectQuestion = () => {
@@ -44,42 +38,38 @@ const selectQuestion = () => {
     const answer = answers.splice(randIndex, 1);
     randomizedAnswers.push(answer[0]);
   }
-  questionForm.innerText = question.question;
+  formQuestion.innerText = question.question;
   //replace question and answers with the newly selected question
-  form.innerHTML = "";
+  answerForm.innerHTML = "";
   for (let i = 0; i < randomizedAnswers.length; i++) {
     const answerFormInput = document.createElement("input");
     answerFormInput.setAttribute("type", "radio");
     answerFormInput.setAttribute("id", `answer${i + 1}`);
     answerFormInput.setAttribute("name", "answer");
     answerFormInput.setAttribute("value", randomizedAnswers[`${i}`]);
-    form.appendChild(answerFormInput);
+    answerForm.appendChild(answerFormInput);
     //todo change setattribute
     const answerFormLabel = document.createElement("label");
     answerFormLabel.setAttribute("for", `answer${i + 1}`);
     answerFormLabel.innerText = randomizedAnswers[i];
-    form.appendChild(answerFormLabel);
+    answerForm.appendChild(answerFormLabel);
     // answerFormLabel.addEventListener("click", answerFormInput.classList.add("selectedAnswer"));
-    answerFormLabel.addEventListener("click", test);
+    answerFormLabel.addEventListener("click", highlightSelectedAnswer);
   }
   const btn = document.createElement("input");
   btn.setAttribute("type", "submit");
   btn.setAttribute("value", "PROSSIMA");
-  form.appendChild(btn);
+  answerForm.appendChild(btn);
 };
 
-const test = e => {
-  // e.target.classList.add("selectedAnswer");
+const highlightSelectedAnswer = e => {
   const prevAnswer = document.getElementById("selectedAnswer");
+  //todo remove the if somehow
   if (prevAnswer) {
     prevAnswer.removeAttribute("id");
-  } //!todo remove if
-  e.target.setAttribute("id", "selectedAnswer");
-  //   console.log(e);
+  }
+  e.target.setAttribute("id", "selectedAnswer"); //todo use another method
 };
-
-// const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-// selectedAnswer.classList.add("selectedAnswer");
 
 const nextQuestion = e => {
   e.preventDefault();
@@ -102,11 +92,9 @@ const nextQuestion = e => {
   timerIntervalID = setInterval(decreaseTimer, 1000);
 };
 
-form.addEventListener("submit", nextQuestion);
+answerForm.addEventListener("submit", nextQuestion);
 
-// window.onload = selectQuestion();
-
-let timerIntervalID = null;
+// let timerIntervalID = null;
 
 window.onload = () => {
   selectQuestion();
