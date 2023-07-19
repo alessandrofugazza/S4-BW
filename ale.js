@@ -11,9 +11,7 @@ const decreaseTimer = () => {
     secondsRemaining -= 1;
     timer.innerText = secondsRemaining;
   } else {
-    // alert("time is up"); //todo make a function
-    // secondsRemaining = maxTimer;
-    remainingQuestions--;
+    remainingQuestions--; //todo make a function
     if (remainingQuestions === 0) {
       resetQuestions();
     }
@@ -40,7 +38,6 @@ const selectQuestion = () => {
   question = questions[randIndex];
   questions.splice(randIndex, 1);
   // randomize the answers' order
-  // console.log(question);
   const answers = [question.correct_answer, ...question.incorrect_answers];
   const randomizedAnswers = [];
   for (let i = answers.length; i; i--) {
@@ -65,7 +62,6 @@ const selectQuestion = () => {
     answerFormLabel.innerText = randomizedAnswers[i];
     answerFormLabel.addEventListener("click", highlightSelectedAnswer);
     answerForm.appendChild(answerFormLabel);
-    // answerFormLabel.addEventListener("click", answerFormInput.classList.add("selectedAnswer"));
   }
   const formBr = document.createElement("br");
   answerForm.appendChild(formBr);
@@ -89,16 +85,10 @@ const highlightSelectedAnswer = e => {
   e.target.setAttribute("id", "selectedAnswer"); //todo use another method
 };
 
-// const resetQuestions = () => {
-//   const main = document.getElementsByTagName("main");
-//   main.innerHTML = "";
-// };
-
 const nextQuestion = e => {
   e.preventDefault();
   // check if answer is correct
   const answerGiven = document.querySelector('input[name="answer"]:checked').value;
-  //   selectedAnswer = document.querySelector('input[name="answer"]:checked').value;
   if (question.correct_answer === answerGiven) {
     correctAnswers += 1;
   }
@@ -106,9 +96,7 @@ const nextQuestion = e => {
   remainingQuestions--;
   if (remainingQuestions === 0) {
     // placeholder when there are no more questions
-    // alert(`${correctAnswers}`);
     resetQuestions();
-    // document.main.innerHTML = "";
     return;
   }
   // pull another question from the array
@@ -121,11 +109,7 @@ const nextQuestion = e => {
 
 answerForm.addEventListener("submit", nextQuestion);
 
-// let timerIntervalID = null;
-
 window.onload = () => {
   selectQuestion();
   timerIntervalID = setInterval(decreaseTimer, 1000);
 };
-
-//todo question number
