@@ -81,6 +81,11 @@ const highlightSelectedAnswer = e => {
   e.target.setAttribute("id", "selectedAnswer"); //todo use another method
 };
 
+const resetQuestions = () => {
+  // const main = document.getElementsByTagName("main");
+  document.main.innerHTML = "";
+};
+
 const nextQuestion = e => {
   e.preventDefault();
   // check if answer is correct
@@ -93,7 +98,8 @@ const nextQuestion = e => {
   questionNumber++;
   if (remainingQuestions === 0) {
     // placeholder when there are no more questions
-    alert(`${correctAnswers}`);
+    // alert(`${correctAnswers}`);
+    resetQuestions();
   }
   // pull another question from the array
   selectQuestion();
