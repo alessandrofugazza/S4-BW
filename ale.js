@@ -33,6 +33,7 @@ const selectQuestion = () => {
   question = questions[randIndex];
   questions.splice(randIndex, 1);
   // randomize the answers' order
+  // console.log(question);
   const answers = [question.correct_answer, ...question.incorrect_answers];
   const randomizedAnswers = [];
   for (let i = answers.length; i; i--) {
@@ -81,10 +82,10 @@ const highlightSelectedAnswer = e => {
   e.target.setAttribute("id", "selectedAnswer"); //todo use another method
 };
 
-const resetQuestions = () => {
-  // const main = document.getElementsByTagName("main");
-  document.main.innerHTML = "";
-};
+// const resetQuestions = () => {
+//   const main = document.getElementsByTagName("main");
+//   main.innerHTML = "";
+// };
 
 const nextQuestion = e => {
   e.preventDefault();
@@ -94,12 +95,14 @@ const nextQuestion = e => {
   if (question.correct_answer === answerGiven) {
     correctAnswers += 1;
   }
-  remainingQuestions--;
   questionNumber++;
+  remainingQuestions--;
   if (remainingQuestions === 0) {
     // placeholder when there are no more questions
     // alert(`${correctAnswers}`);
     resetQuestions();
+    // document.main.innerHTML = "";
+    return;
   }
   // pull another question from the array
   selectQuestion();
