@@ -20,17 +20,21 @@ const stars = document.querySelectorAll(".stars");
 //     }
 //   });
 // });
-let reatingUser = null;
+let ratingUser = null;
 stars.forEach((singleStar, index) => {
   singleStar.addEventListener("click", () => {
     // console.log(index + 1);
-    for (let i = 0; i <= index; i++) {}
-    reatingUser = index + 1;
-    // return index + 1;
-    console.log(reatingUser);
-    for (let i = index + 1; i < reatingUser; i++) {
-      stars[i].classList.add("filter");
+    if (ratingUser) {
+      for (let i = index + 1; i < ratingUser; i++) {
+        stars[i].classList.add("filter");
+      }
     }
+    for (let i = 0; i <= index; i++) {
+      stars[i].classList.remove("filter");
+    }
+    ratingUser = index + 1;
+    // return index + 1;
+    // console.log(ratingUser);
   });
 });
 //"MORE INFO" per catturare il rating e il commento
