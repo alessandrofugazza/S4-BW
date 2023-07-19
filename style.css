@@ -184,12 +184,8 @@ h2 span {
   color: #d20094;
 }
 
-form input {
+.answer {
   appearance: none;
-}
-
-form input:last-of-type {
-  display: block;
 }
 
 .numberOfQuestions {
