@@ -15,6 +15,7 @@ const decreaseTimer = () => {
     if (remainingQuestions === 0) {
       resetQuestions();
     }
+    questionNumber++;
     selectQuestion();
     clearInterval(timerIntervalID);
     secondsRemaining = maxTimer;
