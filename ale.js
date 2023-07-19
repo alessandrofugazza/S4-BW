@@ -2,7 +2,7 @@
 
 const timer = document.querySelector("header div p:nth-of-type(2)"); //todo use class
 
-const maxTimer = 999999;
+const maxTimer = 3;
 let secondsRemaining = maxTimer;
 timer.innerText = secondsRemaining;
 
@@ -11,9 +11,16 @@ const decreaseTimer = () => {
     secondsRemaining -= 1;
     timer.innerText = secondsRemaining;
   } else {
-    alert("time is up"); //todo remove and prevent answerForm change instead
-    secondsRemaining = maxTimer;
+    // alert("time is up"); //todo make a function
+    // secondsRemaining = maxTimer;
+    remainingQuestions--;
+    if (remainingQuestions === 0) {
+      resetQuestions();
+    }
     selectQuestion();
+    clearInterval(timerIntervalID);
+    secondsRemaining = maxTimer;
+    timerIntervalID = setInterval(decreaseTimer, 1000);
   }
 };
 
