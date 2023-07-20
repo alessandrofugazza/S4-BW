@@ -209,7 +209,12 @@ h2 span {
 #selectedAnswer {
   background-color: #ac0088;
 }
-
+#green {
+  background-color: #54b02d;
+}
+#red {
+  background-color: #da0000;
+}
 /* RESULTS CSS */
 .articleresults {
   text-align: center;

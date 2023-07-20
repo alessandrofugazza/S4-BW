@@ -2,7 +2,7 @@
 
 const timer = document.querySelector("header div p:nth-of-type(2)"); //todo use class
 
-const maxTimer = 3;
+const maxTimer = 60;
 let secondsRemaining = maxTimer;
 timer.innerText = secondsRemaining;
 
@@ -92,7 +92,16 @@ const nextQuestion = e => {
   const answerGiven = document.querySelector('input[name="answer"]:checked').value;
   if (question.correct_answer === answerGiven) {
     correctAnswers += 1;
+    const test = document.getElementById("selectedAnswer");
+    test.setAttribute("id", "green");
+  } else {
+    const test = document.getElementById("selectedAnswer");
+    test.setAttribute("id", "red");
   }
+  setTimeout(testFunction, 2000);
+};
+
+const testFunction = function () {
   questionNumber++;
   remainingQuestions--;
   if (remainingQuestions === 0) {
