@@ -362,6 +362,7 @@ h2 span {
   padding-left: 25px;
   font-family: "Inter", sans-serif;
   color: white;
+  outline: none;
 }
 
 .inputButton {
