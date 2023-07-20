@@ -672,4 +672,10 @@ const mediumQuestions = [
   },
 ];
 
+// const proceedButton = document.querySelector(".custom-button");
+// proceedButton.addEventListener("click", e => {
+//   // console.log(document.querySelector('select[name="Difficulty"]:checked').value);
+//   console.log(e);
+// });
+
 questions = easyQuestions;
