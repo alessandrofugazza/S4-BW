@@ -79,10 +79,6 @@ label {
   margin-left: 7%;
 }
 
-.tick-checkbox {
-  background: transparent;
-}
-
 .custom-button {
   margin-left: 350px;
   background-color: #01ffff;
@@ -174,13 +170,13 @@ h2 span {
   margin-bottom: 1em;
 }
 
-.answer-box + div {
+.answer-box+div {
   font-weight: 500;
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
 }
 
-.answer-box + div span {
+.answer-box+div span {
   color: #d20094;
 }
 
@@ -209,12 +205,15 @@ h2 span {
 #selectedAnswer {
   background-color: #ac0088;
 }
+
 #green {
   background-color: #54b02d;
 }
+
 #red {
   background-color: #da0000;
 }
+
 /* RESULTS CSS */
 .articleresults {
   text-align: center;
@@ -369,6 +368,7 @@ h2 span {
 .stars {
   padding-inline: 4px;
 }
+
 .filter {
   filter: brightness(0.15);
 }
