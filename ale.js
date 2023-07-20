@@ -5,7 +5,7 @@ const timer = document.querySelector("header div p:nth-of-type(2)"); //todo use 
 const maxTimer = 60;
 let secondsRemaining = maxTimer;
 timer.innerText = secondsRemaining;
-
+let timerIntervalID = null;
 const decreaseTimer = () => {
   if (secondsRemaining) {
     secondsRemaining -= 1;
@@ -19,6 +19,7 @@ const decreaseTimer = () => {
     selectQuestion();
     clearInterval(timerIntervalID);
     secondsRemaining = maxTimer;
+    timer.innerText = secondsRemaining;
     timerIntervalID = setInterval(decreaseTimer, 1000);
   }
 };
@@ -88,6 +89,7 @@ const highlightSelectedAnswer = e => {
 
 const nextQuestion = e => {
   e.preventDefault();
+  clearInterval(timerIntervalID);
   // check if answer is correct
   const answerGiven = document.querySelector('input[name="answer"]:checked').value;
   if (question.correct_answer === answerGiven) {
@@ -98,7 +100,7 @@ const nextQuestion = e => {
     const test = document.getElementById("selectedAnswer");
     test.setAttribute("id", "red");
   }
-  setTimeout(testFunction, 2000);
+  setTimeout(testFunction, 1000);
 };
 
 const testFunction = function () {
@@ -112,8 +114,9 @@ const testFunction = function () {
   // pull another question from the array
   selectQuestion();
   // reset the timer
-  clearInterval(timerIntervalID);
+  // clearInterval(timerIntervalID);
   secondsRemaining = maxTimer;
+  timer.innerText = secondsRemaining;
   timerIntervalID = setInterval(decreaseTimer, 1000);
 };
 
