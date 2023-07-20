@@ -15,7 +15,9 @@ const resetQuestions = () => {
       <h3 class="corwro percentuali">${percentuali}%</h3>
       <p>${correctAnswers}/${totalQuestions} questions</p>
     </div>
-    <div class="inblock circle">
+    <div class="inblock circle" style="background-image:radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#ac0088 0% ${
+      100 - percentuali
+    }%,#01ffff ${100 - percentuali}% 100%)";>
       <h5 class="cong">Congratulations!</h5>
       <h5 class="pass">You passed the exam.</h5>
       <p class="send">
