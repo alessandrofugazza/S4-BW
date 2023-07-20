@@ -4,7 +4,12 @@ const resetQuestions = () => {
   const main = document.getElementsByTagName("main");
   // alert(`${correctAnswers}`);
   let percentuali = Math.round((correctAnswers / totalQuestions) * 100 * 100) / 100;
-  console.log(percentuali);
+  let message = "";
+  if (percentuali > 59.99) {
+    message = '<h5 class="cong">Congratulations!</h5><h5 class="pass">You passed the exam.</h5>';
+  } else {
+    message = `<h5 class="cong">You failed.</h5><h5 class="pass">Better luck next time!</h5>`;
+  }
   main[0].innerHTML = "";
   main[0].innerHTML = `<img src=".\\assets\\img\\epicode_logo.png" class="epicode_logo" />
   <article class="articleresults">
@@ -18,8 +23,7 @@ const resetQuestions = () => {
     <div class="inblock circle" style="background-image:radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#ac0088 0% ${
       100 - percentuali
     }%,#01ffff ${100 - percentuali}% 100%)";>
-      <h5 class="cong">Congratulations!</h5>
-      <h5 class="pass">You passed the exam.</h5>
+      ${message}
       <p class="send">
         We'll send you the certificate<br />
         in few minutes
