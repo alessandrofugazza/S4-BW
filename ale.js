@@ -91,16 +91,20 @@ const nextQuestion = e => {
   e.preventDefault();
   clearInterval(timerIntervalID);
   // check if answer is correct
-  const answerGiven = document.querySelector('input[name="answer"]:checked').value;
-  if (question.correct_answer === answerGiven) {
-    correctAnswers += 1;
-    const test = document.getElementById("selectedAnswer");
-    test.setAttribute("id", "green");
+  const answerGiven = document.querySelector('input[name="answer"]:checked');
+  if (answerGiven) {
+    if (question.correct_answer === answerGiven.value) {
+      correctAnswers += 1;
+      const test = document.getElementById("selectedAnswer");
+      test.setAttribute("id", "green");
+    } else {
+      const test = document.getElementById("selectedAnswer");
+      test.setAttribute("id", "red");
+    }
+    setTimeout(testFunction, 1000);
   } else {
-    const test = document.getElementById("selectedAnswer");
-    test.setAttribute("id", "red");
+    testFunction();
   }
-  setTimeout(testFunction, 1000);
 };
 
 const testFunction = function () {
