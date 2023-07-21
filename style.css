@@ -158,7 +158,9 @@ label {
   margin: 0;
   font-family: "Outfit", sans-serif;
 }
-
+header p:first-of-type {
+  margin-top: 6px;
+}
 header p:first-of-type,
 header p:last-of-type {
   font-size: 0.5rem;
@@ -223,7 +225,7 @@ h2 span {
   display: inline-block;
   width: 21.5em;
   padding: 1.5em;
-  border: 3.5px solid white;
+  border: 3.5px solid #ffffff5c;
   border-radius: 40px;
   background-color: #43434347;
 }
