@@ -129,6 +129,10 @@ label {
   float: left;
 }
 
+#difficulty {
+  font-family: "Outfit", sans-serif;
+}
+
 .headerQuestionsDiv {
   text-align: center;
   border-radius: 100px;
