@@ -1,8 +1,7 @@
 // percentuali = percentuali.toString();
 
 const resetQuestions = () => {
-  const main = document.getElementsByTagName("main");
-  console.log(main);
+  const body = document.getElementsByTagName("body");
   // alert(`${correctAnswers}`);
   let percentuali = Math.round((correctAnswers / totalQuestions) * 100 * 100) / 100;
   let message = "";
@@ -11,8 +10,7 @@ const resetQuestions = () => {
   } else {
     message = `<h5 class="cong">You failed.</h5><h5 class="pass">Better luck next time!</h5>`;
   }
-  // main[0].innerHTML = "";
-  main[0].innerHTML = `
+  body[0].innerHTML = `
   <img src=".\\assets\\img\\epicode_logo.png" class="epicode_logo" />
   <article class="articleresults">
     <h2 class="title">Results</h2>

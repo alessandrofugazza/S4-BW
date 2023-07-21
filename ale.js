@@ -79,7 +79,11 @@ const highlightSelectedAnswer = e => {
   }
   e.target.setAttribute("id", "selectedAnswer"); //todo use another method
   const btn = document.querySelector(".submit");
-  btn.setAttribute("value", "PROSSIMA");
+  if (remainingQuestions > 1) {
+    btn.setAttribute("value", "PROSSIMA");
+  } else {
+    btn.setAttribute("value", "FINE");
+  }
 };
 
 const nextQuestion = e => {
@@ -110,6 +114,7 @@ const testFunction = function () {
     resetQuestions();
     return;
   }
+
   // pull another question from the array
   selectQuestion();
   // reset the timer

@@ -108,6 +108,17 @@ label {
   height: 50px;
 }
 
+.custom-button:hover,
+.agree-checkbox,
+.submit,
+.answer-box label,
+.button,
+.stars,
+.inputButton,
+.divStars span {
+  cursor: pointer;
+}
+
 /* QUESTIONS CSS */
 
 /* header, */
@@ -390,4 +401,8 @@ h2 span {
 
 .filter {
   filter: brightness(0.15);
+}
+
+.divStars span {
+  display: inline-block;
 }
