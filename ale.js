@@ -66,7 +66,7 @@ const selectQuestion = () => {
   answerForm.appendChild(formQuestionNumber);
   const btn = document.createElement("input");
   btn.setAttribute("type", "submit");
-  btn.setAttribute("value", "PROSSIMA"); //todo add right arrow
+  btn.setAttribute("value", "SALTA"); //todo add right arrow
   btn.classList.add("submit");
   answerForm.appendChild(btn);
 };
@@ -78,6 +78,8 @@ const highlightSelectedAnswer = e => {
     prevAnswer.removeAttribute("id");
   }
   e.target.setAttribute("id", "selectedAnswer"); //todo use another method
+  const btn = document.querySelector(".submit");
+  btn.setAttribute("value", "PROSSIMA");
 };
 
 const nextQuestion = e => {
