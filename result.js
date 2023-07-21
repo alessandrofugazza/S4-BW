@@ -11,6 +11,7 @@ const resetQuestions = () => {
     message = `<h5 class="cong">You failed.</h5><h5 class="pass">Better luck next time!</h5>`;
   }
   body[0].innerHTML = `
+  <main>
   <img src=".\\assets\\img\\epicode_logo.png" class="epicode_logo" />
   <article class="articleresults">
     <h2 class="title">Results</h2>
@@ -40,6 +41,7 @@ const resetQuestions = () => {
     </div>
     <button type="button" class="button">RATE US</button>
   </article>
+  </main>
   `;
   const rateUs = document.getElementsByClassName("button");
   // console.log(rateUs);

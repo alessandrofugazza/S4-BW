@@ -148,7 +148,7 @@ window.onload = () => {
     let userInput = totalQuestions.value;
     userInput = Number(userInput);
     if (isNaN(userInput)) {
-      alert("insert valid questnum");
+      alert("invalid question amount");
       return;
     }
     if (userInput < 10 || userInput > 40) {
@@ -160,6 +160,7 @@ window.onload = () => {
     diff = document.querySelector("#difficulty").value;
     filterQuestions();
     document.querySelector("body").innerHTML = `
+    <main>
     <header class="question-header">
         <img src="assets/img/epicode_logo.png" alt="epicode_logo" class="epicode_logo" />
          <div class="headerQuestionsDiv" style="background-image:radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#ac0088 0% 60%,#01ffff 
@@ -169,7 +170,6 @@ window.onload = () => {
           <p class="headerPQuestions">REMAINING</p>
          </div>
       </header>
-      <main>
         <article class="question-main">
           <section>
             <h2 class="h2Questions">How can I create a checkbox in HTML?</h2>
