@@ -9,9 +9,11 @@ const decreaseTimer = () => {
     timer.innerText = secondsRemaining;
     const clock = document.querySelector(".headerQuestionsDiv");
     const timePerc = (secondsRemaining / maxTimer) * 100;
-    clock.style.backgroundImage = `radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#efefef3b 0% ${timePerc}%,#01ffff 0% 100%)`;
-    console.log(timePerc);
-    console.log(clock.style.backgroundImage);
+    if (secondsRemaining >= 10) {
+      clock.style.backgroundImage = `radial-gradient(#3E1655 50%,transparent 50%),conic-gradient(#efefef3b 0% ${timePerc}%,#01ffff 0% 100%)`;
+    } else {
+      clock.style.backgroundImage = `radial-gradient(#3E1655 50%,transparent 50%),conic-gradient(#efefef3b 0% ${timePerc}%,#da0000 0% 100%)`;
+    }
   } else {
     remainingQuestions--; //todo make a function
     if (remainingQuestions === 0) {
@@ -23,7 +25,7 @@ const decreaseTimer = () => {
     secondsRemaining = maxTimer;
     timer.innerText = secondsRemaining;
     const clock = document.querySelector(".headerQuestionsDiv");
-    clock.style.backgroundImage = `radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#efefef3b 0% 100%,#01ffff 100% 100%)`;
+    clock.style.backgroundImage = `radial-gradient(#3E1655 50%,transparent 50%),conic-gradient(#efefef3b 0% 100%,#01ffff 100% 100%)`;
     timerIntervalID = setInterval(decreaseTimer, 1000);
   }
 };
@@ -129,7 +131,7 @@ const testFunction = function () {
   secondsRemaining = maxTimer;
   timer.innerText = secondsRemaining;
   const clock = document.querySelector(".headerQuestionsDiv");
-  clock.style.backgroundImage = `radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#efefef3b 0% 100%,#01ffff 100% 100%)`;
+  clock.style.backgroundImage = `radial-gradient(#3E1655 50%,transparent 50%),conic-gradient(#efefef3b 0% 100%,#01ffff 100% 100%)`;
   timerIntervalID = setInterval(decreaseTimer, 1000);
 };
 
@@ -171,7 +173,7 @@ window.onload = () => {
     <main>
     <header class="question-header">
         <img src="assets/img/epicode_logo.png" alt="epicode_logo" class="epicode_logo" />
-         <div class="headerQuestionsDiv" style="background-image:radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#efefef3b 0% 100%,#01ffff 100% 100%);">
+         <div class="headerQuestionsDiv" style="background-image:radial-gradient(#3E1655 50%,transparent 50%),conic-gradient(#efefef3b 0% 100%,#01ffff 100% 100%);">
           <p class="headerPQuestions">SECONDS</p>
           <p class="headerPQuestions">16</p>
           <p class="headerPQuestions">REMAINING</p>
