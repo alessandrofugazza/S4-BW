@@ -98,14 +98,30 @@ label {
 }
 
 .custom-button {
-  margin-left: 350px;
   background-color: #01ffff;
   border: none;
   color: black;
   box-shadow: 0px 0px 30px #01ffff;
   font-weight: bold;
-  width: 200px;
-  height: 50px;
+  width: 207px;
+  height: 60px;
+  font-family: "Inter", sans-serif;
+  font-size: 130%;
+}
+
+.agree-checkbox {
+  margin-right: 21em;
+}
+
+.custom-button:hover,
+.agree-checkbox,
+.submit,
+.answer-box label,
+.button,
+.stars,
+.inputButton,
+.divStars span {
+  cursor: pointer;
 }
 
 /* QUESTIONS CSS */
@@ -116,14 +132,24 @@ label {
   float: left;
 }
 
+#difficulty {
+  font-family: "Outfit", sans-serif;
+}
+
 .headerQuestionsDiv {
   text-align: center;
   border-radius: 100px;
   width: 7.5em;
   height: 7.5em;
   float: right;
-  border: 12px solid #00ffff;
   padding: 1.3em;
+  margin-top: 3em;
+  /* -webkit-mask-image: url(./assets/img/circle.png);
+  mask-image: url(./assets/img/circle.png);
+  -webkit-mask-size: 70%;
+  mask-size: 70%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat; */
 }
 
 .headerPQuestions {
@@ -148,9 +174,29 @@ header p:last-of-type {
 
 /* main */
 
+.pre-questionary {
+  text-align: center;
+}
+
 .question-main {
   padding-top: 5.1em;
   clear: both;
+}
+
+.pre-questionary div {
+  margin-bottom: 5em;
+}
+
+.pre-questionary div * {
+  font-size: 1.2rem;
+}
+
+.pre-questionary div label {
+  margin-right: 1em;
+}
+
+.pre-questionary .inputText {
+  margin-bottom: 5em;
 }
 
 .h2Questions {
@@ -392,3 +438,10 @@ h2 span {
 .filter {
   filter: brightness(0.15);
 }
+<<<<<<< HEAD
+=======
+
+.divStars span {
+  display: inline-block;
+}
+>>>>>>> ale

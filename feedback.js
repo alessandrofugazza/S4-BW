@@ -21,7 +21,7 @@ const commentInput = document.querySelector(".inputText");
 
 moreInfoButton.addEventListener("click", () => {
   const comment = commentInput.value;
-
   console.log(`Rating: ${ratingUser}`);
   console.log(`Commento: ${comment}`);
+  alert("feedback sent");
 });

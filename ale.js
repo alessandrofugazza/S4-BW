@@ -1,10 +1,7 @@
 // CLOCK //
 
-const timer = document.querySelector("header div p:nth-of-type(2)"); //todo use class
-
 const maxTimer = 60;
 let secondsRemaining = maxTimer;
-timer.innerText = secondsRemaining;
 let timerIntervalID = null;
 const decreaseTimer = () => {
   if (secondsRemaining) {
@@ -26,11 +23,7 @@ const decreaseTimer = () => {
 
 // ANSWER FORM //
 
-const answerForm = document.querySelector("form");
-const formQuestion = document.querySelector("h2");
 let correctAnswers = 0;
-const totalQuestions = questions.length;
-let remainingQuestions = totalQuestions;
 let question = null;
 let questionNumber = 1;
 
@@ -47,7 +40,7 @@ const selectQuestion = () => {
     const answer = answers.splice(randIndex, 1);
     randomizedAnswers.push(answer[0]);
   }
-  formQuestion.innerText = question.question;
+  formQuestion.innerHTML = question.question;
   //replace question and answers with the newly selected question
   answerForm.innerHTML = "";
   for (let i = 0; i < randomizedAnswers.length; i++) {
@@ -61,7 +54,7 @@ const selectQuestion = () => {
     //todo change setattribute
     const answerFormLabel = document.createElement("label");
     answerFormLabel.setAttribute("for", `answer${i + 1}`);
-    answerFormLabel.innerText = randomizedAnswers[i];
+    answerFormLabel.innerHTML = randomizedAnswers[i];
     answerFormLabel.addEventListener("click", highlightSelectedAnswer);
     answerForm.appendChild(answerFormLabel);
   }
@@ -73,7 +66,7 @@ const selectQuestion = () => {
   answerForm.appendChild(formQuestionNumber);
   const btn = document.createElement("input");
   btn.setAttribute("type", "submit");
-  btn.setAttribute("value", "PROSSIMA"); //todo add right arrow
+  btn.setAttribute("value", "SALTA"); //todo add right arrow
   btn.classList.add("submit");
   answerForm.appendChild(btn);
 };
@@ -85,6 +78,12 @@ const highlightSelectedAnswer = e => {
     prevAnswer.removeAttribute("id");
   }
   e.target.setAttribute("id", "selectedAnswer"); //todo use another method
+  const btn = document.querySelector(".submit");
+  if (remainingQuestions > 1) {
+    btn.setAttribute("value", "PROSSIMA");
+  } else {
+    btn.setAttribute("value", "FINE");
+  }
 };
 
 const nextQuestion = e => {
@@ -115,6 +114,7 @@ const testFunction = function () {
     resetQuestions();
     return;
   }
+
   // pull another question from the array
   selectQuestion();
   // reset the timer
@@ -124,9 +124,104 @@ const testFunction = function () {
   timerIntervalID = setInterval(decreaseTimer, 1000);
 };
 
-answerForm.addEventListener("submit", nextQuestion);
+const startQuiz = () => {
+  // CLOCK //
+  const timer = document.querySelector("header div p:nth-of-type(2)"); //todo use class
+  timer.innerText = secondsRemaining;
+  // ANSWER FORM //
+  const answerForm = document.querySelector("form");
+  const formQuestion = document.querySelector("h2");
+  const totalQuestions = questions.length;
+  let remainingQuestions = totalQuestions;
+  answerForm.addEventListener("submit", nextQuestion);
+};
+
+let difficulty = null;
+let totalQuestions = null;
 
 window.onload = () => {
-  selectQuestion();
-  timerIntervalID = setInterval(decreaseTimer, 1000);
+  const startQuizBtn = document.querySelector("button");
+  // console.log(startQuizBtn);
+  startQuizBtn.onclick = e => {
+    e.preventDefault();
+    totalQuestions = document.querySelector("input");
+    let userInput = totalQuestions.value;
+    userInput = Number(userInput);
+    if (isNaN(userInput)) {
+      alert("invalid question amount");
+      return;
+    }
+    if (userInput < 10 || userInput > 40) {
+      alert("the amount of questions must be between 10 and 40");
+      totalQuestions.value = "";
+      return;
+    }
+    totalQuestions = userInput;
+    diff = document.querySelector("#difficulty").value;
+    filterQuestions();
+    document.querySelector("body").innerHTML = `
+    <main>
+    <header class="question-header">
+        <img src="assets/img/epicode_logo.png" alt="epicode_logo" class="epicode_logo" />
+         <div class="headerQuestionsDiv" style="background-image:radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#ac0088 0% 60%,#01ffff 
+        60% 100%);">
+          <p class="headerPQuestions">SECONDS</p>
+          <p class="headerPQuestions">16</p>
+          <p class="headerPQuestions">REMAINING</p>
+         </div>
+      </header>
+        <article class="question-main">
+          <section>
+            <h2 class="h2Questions">How can I create a checkbox in HTML?</h2>
+            <div class="answer-box">
+              <form></form>
+            </div>
+          </section>
+        </article>
+      </main>
+    `;
+    // CLOCK //
+    timer = document.querySelector("header div p:nth-of-type(2)"); //todo use class
+    timer.innerText = secondsRemaining;
+    // ANSWER FORM //
+    answerForm = document.querySelector("form");
+    formQuestion = document.querySelector("h2");
+    // const totalQuestions = questions.length;
+    remainingQuestions = totalQuestions;
+    answerForm.addEventListener("submit", nextQuestion);
+    selectQuestion();
+    timerIntervalID = setInterval(decreaseTimer, 1000);
+  };
+};
+
+let timer = null;
+let answerForm = null;
+let formQuestion = null;
+let remainingQuestions = null;
+let questions = null;
+// window.onload = () => {
+//   selectQuestion();
+//   timerIntervalID = setInterval(decreaseTimer, 1000);
+// };
+
+const filterQuestions = () => {
+  switch (diff) {
+    case "easy":
+      questions = [...easyQuestions];
+      break;
+    case "medium":
+      questions = [...mediumQuestions];
+      break;
+    case "hard":
+      questions = [...hardQuestions];
+      break;
+  }
+  const filteredQuestions = [];
+  const questionsArchiveLen = questions.length;
+  for (let i = 0; i < totalQuestions; i++) {
+    const randIndex = Math.floor(Math.random() * (questionsArchiveLen - i - 1));
+    const filteredQuestion = questions.splice(randIndex, 1);
+    filteredQuestions.push(filteredQuestion[0]);
+  }
+  questions = [...filteredQuestions];
 };
