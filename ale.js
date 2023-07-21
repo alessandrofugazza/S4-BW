@@ -7,6 +7,11 @@ const decreaseTimer = () => {
   if (secondsRemaining) {
     secondsRemaining -= 1;
     timer.innerText = secondsRemaining;
+    const clock = document.querySelector(".headerQuestionsDiv");
+    const timePerc = ((maxTimer - secondsRemaining) / maxTimer) * 100;
+    clock.style.backgroundImage = `radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#ac0088 0% ${timePerc}%,#01ffff 0% 100%)`;
+    console.log(timePerc);
+    console.log(clock.style.backgroundImage);
   } else {
     remainingQuestions--; //todo make a function
     if (remainingQuestions === 0) {
@@ -141,7 +146,6 @@ let totalQuestions = null;
 
 window.onload = () => {
   const startQuizBtn = document.querySelector("button");
-  // console.log(startQuizBtn);
   startQuizBtn.onclick = e => {
     e.preventDefault();
     totalQuestions = document.querySelector("input");
@@ -163,8 +167,7 @@ window.onload = () => {
     <main>
     <header class="question-header">
         <img src="assets/img/epicode_logo.png" alt="epicode_logo" class="epicode_logo" />
-         <div class="headerQuestionsDiv" style="background-image:radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#ac0088 0% 60%,#01ffff 
-        60% 100%);">
+         <div class="headerQuestionsDiv" style="background-image:radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#ac0088 0% 0%,#01ffff 0% 100%);">
           <p class="headerPQuestions">SECONDS</p>
           <p class="headerPQuestions">16</p>
           <p class="headerPQuestions">REMAINING</p>
