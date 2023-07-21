@@ -40,7 +40,7 @@ const selectQuestion = () => {
     const answer = answers.splice(randIndex, 1);
     randomizedAnswers.push(answer[0]);
   }
-  formQuestion.innerText = question.question;
+  formQuestion.innerHTML = question.question;
   //replace question and answers with the newly selected question
   answerForm.innerHTML = "";
   for (let i = 0; i < randomizedAnswers.length; i++) {
@@ -54,7 +54,7 @@ const selectQuestion = () => {
     //todo change setattribute
     const answerFormLabel = document.createElement("label");
     answerFormLabel.setAttribute("for", `answer${i + 1}`);
-    answerFormLabel.innerText = randomizedAnswers[i];
+    answerFormLabel.innerHTML = randomizedAnswers[i];
     answerFormLabel.addEventListener("click", highlightSelectedAnswer);
     answerForm.appendChild(answerFormLabel);
   }
