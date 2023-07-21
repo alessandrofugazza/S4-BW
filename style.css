@@ -188,13 +188,13 @@ h2 span {
   margin-bottom: 1em;
 }
 
-.answer-box+div {
+.answer-box + div {
   font-weight: 500;
   font-size: 1.2rem;
   letter-spacing: 0.1rem;
 }
 
-.answer-box+div span {
+.answer-box + div span {
   color: #d20094;
 }
 
@@ -280,6 +280,7 @@ h2 span {
   height: 50px;
   font-family: "Inter", sans-serif;
   font-size: 120%;
+  box-shadow: 0px 0px 30px #01ffff2e;
 }
 
 .corwro {
