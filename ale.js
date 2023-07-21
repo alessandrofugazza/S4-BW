@@ -151,17 +151,23 @@ window.onload = () => {
       alert("insert valid questnum");
       return;
     }
+    if (userInput < 10 || userInput > 40) {
+      alert("the amount of questions must be between 10 and 40");
+      totalQuestions.value = "";
+      return;
+    }
     totalQuestions = userInput;
     diff = document.querySelector("#difficulty").value;
     filterQuestions();
     document.querySelector("body").innerHTML = `
     <header class="question-header">
         <img src="assets/img/epicode_logo.png" alt="epicode_logo" class="epicode_logo" />
-        <div class="headerQuestionsDiv">
+         <div class="headerQuestionsDiv" style="background-image:radial-gradient(#0b113b 50%,transparent 50%),conic-gradient(#ac0088 0% 60%,#01ffff 
+        60% 100%);">
           <p class="headerPQuestions">SECONDS</p>
           <p class="headerPQuestions">16</p>
           <p class="headerPQuestions">REMAINING</p>
-        </div>
+         </div>
       </header>
       <main>
         <article class="question-main">
