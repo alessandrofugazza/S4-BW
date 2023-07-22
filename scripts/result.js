@@ -1,8 +1,5 @@
-// percentuali = percentuali.toString();
-
 const resetQuestions = () => {
   const body = document.getElementsByTagName("body");
-  // alert(`${correctAnswers}`);
   let percentuali = Math.round((correctAnswers / totalQuestions) * 100 * 100) / 100;
   let message = "";
   if (percentuali > 59.99) {
@@ -44,8 +41,7 @@ const resetQuestions = () => {
   </main>
   `;
   const rateUs = document.getElementsByClassName("button");
-  // console.log(rateUs);
   rateUs[0].addEventListener("click", () => {
-    window.location.href = "index.feedback.html";
+    window.location.href = "feedback.html";
   });
 };

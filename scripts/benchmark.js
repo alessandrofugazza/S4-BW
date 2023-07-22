@@ -195,7 +195,6 @@ window.onload = () => {
     // ANSWER FORM //
     answerForm = document.querySelector("form");
     formQuestion = document.querySelector("h2");
-    // const totalQuestions = questions.length;
     remainingQuestions = totalQuestions;
     answerForm.addEventListener("submit", nextQuestion);
     selectQuestion();
@@ -208,10 +207,6 @@ let answerForm = null;
 let formQuestion = null;
 let remainingQuestions = null;
 let questions = null;
-// window.onload = () => {
-//   selectQuestion();
-//   timerIntervalID = setInterval(decreaseTimer, 1000);
-// };
 
 const filterQuestions = () => {
   switch (diff) {

@@ -16,6 +16,6 @@ document.querySelector(".custom-button").addEventListener("click", function (eve
   event.preventDefault(); // Evita il comportamento predefinito del pulsante (submit del form)
   if (document.getElementById("agree-checkbox").checked) {
     // Inserisci qui il link alla pagina successiva
-    window.location.href = "index.question.html";
+    window.location.href = "benchmark.html";
   }
 });
