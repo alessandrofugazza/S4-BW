@@ -93,6 +93,11 @@ label {
   border: 2px solid white;
   display: inline-block;
   padding: 2px;
+  vertical-align: middle;
+}
+
+.tick+span {
+  vertical-align: middle;
 }
 
 .fakeTick {
