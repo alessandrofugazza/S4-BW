@@ -17,11 +17,25 @@ stars.forEach((singleStar, index) => {
 
 // "MORE INFO" per catturare il rating e il commento
 const moreInfoButton = document.querySelector(".inputButton");
-const commentInput = document.querySelector(".inputText");
 
-moreInfoButton.addEventListener("click", () => {
+moreInfoButton.addEventListener("click", e => {
+  e.preventDefault();
+  const commentInput = document.querySelector(".inputText");
+  const link = document.querySelector("a");
   const comment = commentInput.value;
+  if (!ratingUser) {
+    link.setAttribute("href", "");
+    alert("please rate");
+    link.setAttribute("href", "https://epicode.com/it/");
+    return;
+  }
+  if (!comment) {
+    link.setAttribute("href", "");
+    alert("please write a comment");
+    link.setAttribute("href", "https://epicode.com/it/");
+    return;
+  }
   console.log(`Rating: ${ratingUser}`);
-  console.log(`Commento: ${comment}`);
-  alert("feedback sent");
+  console.log(`Comment: ${comment}`);
+  window.open("https://epicode.com/it/", "_self");
 });
