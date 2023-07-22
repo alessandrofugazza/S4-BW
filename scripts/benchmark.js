@@ -75,7 +75,11 @@ const selectQuestion = () => {
   answerForm.appendChild(formQuestionNumber);
   const btn = document.createElement("input");
   btn.setAttribute("type", "submit");
-  btn.setAttribute("value", "SALTA"); //todo add right arrow
+  if (remainingQuestions > 1) {
+    btn.setAttribute("value", "SKIP"); //todo add right arrow
+  } else {
+    btn.setAttribute("value", "SKIP - FINISH");
+  }
   btn.classList.add("submit");
   answerForm.appendChild(btn);
 };
@@ -89,9 +93,9 @@ const highlightSelectedAnswer = e => {
   e.target.setAttribute("id", "selectedAnswer"); //todo use another method
   const btn = document.querySelector(".submit");
   if (remainingQuestions > 1) {
-    btn.setAttribute("value", "PROSSIMA");
+    btn.setAttribute("value", "NEXT");
   } else {
-    btn.setAttribute("value", "FINE");
+    btn.setAttribute("value", "FINISH");
   }
 };
 
