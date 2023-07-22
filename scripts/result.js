@@ -1,8 +1,8 @@
 const resetQuestions = () => {
   const body = document.getElementsByTagName("body");
-  let percentuali = Math.round((correctAnswers / totalQuestions) * 100 * 100) / 100;
+  let percentuali = Math.round((correctAnswers / totalQuestions) * 100 * 10) / 10;
   let message = "";
-  if (percentuali > 59.99) {
+  if (percentuali >= 60) {
     message = '<h5 class="cong">Congratulations!</h5><h5 class="pass">You passed the exam.</h5>';
   } else {
     message = `<h5 class="cong">You failed.</h5><h5 class="pass">Better luck next time!</h5>`;
