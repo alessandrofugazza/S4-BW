@@ -113,6 +113,11 @@ const nextQuestion = e => {
       const test = document.getElementById("selectedAnswer");
       test.setAttribute("id", "red");
     }
+    let answers = document.getElementsByTagName("label");
+    answers = Array.from(answers);
+    answers.forEach(answer => {
+      answer.removeEventListener("click", highlightSelectedAnswer);
+    });
     setTimeout(testFunction, 1000);
   } else {
     testFunction();
