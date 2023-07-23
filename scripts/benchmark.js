@@ -170,7 +170,7 @@ window.onload = () => {
     //   return;
     // }
     if (!totalQuestions.checkValidity()) {
-      alert("please choose a number between 10 and 40");
+      alert("please choose an integer between 10 and 40");
       totalQuestions.value = "";
       return;
     }
