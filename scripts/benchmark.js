@@ -159,17 +159,17 @@ window.onload = () => {
   startQuizBtn.onclick = e => {
     e.preventDefault();
     totalQuestions = document.querySelector("input");
-    let userInput = totalQuestions.value;
     // userInput = Number(userInput);
     // if (isNaN(userInput)) {
     //   alert("invalid question amount");
     //   return;
     // }
-    if (userInput < 10 || userInput > 40) {
-      alert("the amount of questions must be between 10 and 40");
+    if (!totalQuestions.checkValidity()) {
+      alert("please choose a number between 10 and 40");
       totalQuestions.value = "";
       return;
     }
+    let userInput = totalQuestions.value;
     totalQuestions = userInput;
     diff = document.querySelector("#difficulty").value;
     filterQuestions();
