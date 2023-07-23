@@ -160,11 +160,11 @@ window.onload = () => {
     e.preventDefault();
     totalQuestions = document.querySelector("input");
     let userInput = totalQuestions.value;
-    userInput = Number(userInput);
-    if (isNaN(userInput)) {
-      alert("invalid question amount");
-      return;
-    }
+    // userInput = Number(userInput);
+    // if (isNaN(userInput)) {
+    //   alert("invalid question amount");
+    //   return;
+    // }
     if (userInput < 10 || userInput > 40) {
       alert("the amount of questions must be between 10 and 40");
       totalQuestions.value = "";
