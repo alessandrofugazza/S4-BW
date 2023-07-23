@@ -442,10 +442,12 @@ h2 span {
 .divStars {
   text-align: center;
   margin-bottom: 60px;
+  user-select: none;
 }
 
 .stars {
   padding-inline: 4px;
+  -webkit-user-drag: none;
 }
 
 .filter {
