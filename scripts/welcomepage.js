@@ -17,5 +17,7 @@ document.querySelector(".custom-button").addEventListener("click", function (eve
   if (document.getElementById("agree-checkbox").checked) {
     // Inserisci qui il link alla pagina successiva
     window.location.href = "benchmark.html";
+  } else {
+    alert("please tick the box");
   }
 });
